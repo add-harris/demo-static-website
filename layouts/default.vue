@@ -1,20 +1,40 @@
 <template>
   <v-app dark>
 
-    <v-sheet
-      id="scrolling-techniques"
-      v-scroll.self="scrollFun"
-      class="overflow-y-auto"
-      max-height="500"
+    <v-navigation-drawer
+      v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      fixed
+      app
     >
+      <v-list>
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
     <v-app-bar
       color="orange darken-1"
       shrink-on-scroll
+      app
       dark
-      flat
-      height="300px"
-      prominent
+      height="400px"
+      v-scroll.self="scrollFun"
     >
+
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
@@ -22,40 +42,31 @@
       >
         <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.stop="clipped = !clipped"
-      >
+      <v-btn icon>
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn
-        icon
-        @click.stop="fixed = !fixed"
-      >
+      <v-btn icon>
         <v-icon>mdi-minus</v-icon>
       </v-btn>
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn
-        icon
-        @click.stop="rightDrawer = !rightDrawer"
-      >
+      <v-select placeholder="Theme" class="theme-select">
+
+      </v-select>
+      <v-btn icon>
         <v-icon>mdi-menu</v-icon>
       </v-btn>
     </v-app-bar>
 
 
-
-
       <v-main>
-        <v-container style="height: 1000px;">
+        <v-container>
           <nuxt />
         </v-container>
       </v-main>
 
-    </v-sheet>
 
-    <v-footer :absolute="!fixed" app>
+    <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
@@ -67,7 +78,6 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      fixed: false,
       items: [
         {
           icon: 'mdi-apps',
@@ -76,13 +86,12 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
+          title: 'Menu',
+          to: '/menu'
         }
       ],
       miniVariant: false,
       right: true,
-      rightDrawer: false,
       title: 'Vuetify.js'
     }
   },
@@ -95,6 +104,11 @@ export default {
 </script>
 
 <style>
+
+  .theme-select {
+    max-width: 300px;
+    min-width: 100px;
+  }
 
   #slanted {
     width: 0px;
