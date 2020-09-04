@@ -6,7 +6,7 @@
 
       <v-dialog v-model="dialogOne" fullscreen hide-overlay transition="dialog-bottom-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark v-bind="attrs" v-on="on" >
+          <v-btn color="primary" dark outlined v-bind="attrs" v-on="on" class="mt-7">
             Eat This
           </v-btn>
         </template>
@@ -28,7 +28,7 @@
 
       <v-dialog v-model="dialogTwo" fullscreen hide-overlay transition="dialog-bottom-transition">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark v-bind="attrs" v-on="on" >
+          <v-btn color="primary" dark outlined v-bind="attrs" v-on="on" class="mt-7">
             Drink This
           </v-btn>
         </template>
@@ -56,8 +56,13 @@
       return {
         dialogOne: false,
         dialogTwo: false,
-        overlay: false
       }
     },
+    computed: {
+      calculateHeight() {
+
+      }
+
+    }
   }
 </script>

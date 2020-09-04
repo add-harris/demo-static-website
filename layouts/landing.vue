@@ -6,6 +6,7 @@
       :mini-variant="miniVariant"
       :clipped="clipped"
       fixed
+      min-height="100px"
       app
     >
       <v-list>
@@ -28,9 +29,12 @@
 
     <v-app-bar
       color="orange darken-1"
+      shrink-on-scroll
       app
       dark
       min-height=64
+      height="400px"
+      v-scroll.self="scrollFun"
     >
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -78,24 +82,19 @@ export default {
       drawer: false,
       items: [
         {
-          icon: 'mdi-home',
-          title: 'Home',
+          icon: 'mdi-apps',
+          title: 'Welcome',
           to: '/'
         },
         {
-          icon: 'mdi-food-fork-drink',
+          icon: 'mdi-chart-bubble',
           title: 'Menu',
           to: '/menu'
-        },
-        {
-          icon: 'mdi-map-marker-radius',
-          title: 'Location',
-          to: '/location'
         }
       ],
       miniVariant: false,
       right: true,
-      title: 'Vuetify.js'
+      title: 'Landing'
     }
   },
   methods: {

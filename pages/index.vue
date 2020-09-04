@@ -65,7 +65,8 @@ export default {
   components: {
     Logo,
     VuetifyLogo
-  }
+  },
+  layout: 'landing'
 }
 </script>
 
