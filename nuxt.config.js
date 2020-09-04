@@ -56,7 +56,25 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
+    '@nuxtjs/firebase',
   ],
+
+  firebase: {
+    config: {
+      apiKey: 'AIzaSyAh78iOigjnpDoxE5L9RBB1E_d3RjRI6Sw',
+      authDomain: 'fir-static-website-d6299.firebaseapp.com',
+      databaseURL: 'https://fir-static-website-d6299.firebaseio.com',
+      projectId: 'fir-static-website-d6299',
+      storageBucket: 'fir-static-website-d6299.appspot.com',
+      messagingSenderId: '242946123236',
+      appId: '1:242946123236:web:401f349a7e9e8cc8a993f1',
+      measurementId: 'G-8DGSR019D8'
+    },
+    services: {
+      analytics: true
+    }
+  },
+
   /*
   ** Axios module configuration
   ** See https://axios.nuxtjs.org/options
