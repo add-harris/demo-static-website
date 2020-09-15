@@ -1,6 +1,8 @@
 <template>
   <v-app dark>
 
+    <!-- NAV DRAW -->
+
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -27,38 +29,50 @@
       </v-list>
     </v-navigation-drawer>
 
+    <!-- APP BAR -->
+
     <v-app-bar
-      color="orange darken-1"
-      shrink-on-scroll
       app
       dark
+      shrink-on-scroll
+      color="#F7DDA4"
+      fade-img-on-scroll
+      :src="require('../static/cafe-banner.jpg')"
       min-height=64
       height="400px"
-      v-scroll.self="scrollFun"
+      ref="navbar"
     >
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-btn
-        icon
-        @click.stop="miniVariant = !miniVariant"
-      >
-        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
-      </v-btn>
-      <v-btn icon>
+<!--      <v-btn-->
+<!--        icon-->
+<!--        @click.stop="miniVariant = !miniVariant"-->
+<!--      >-->
+<!--        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>-->
+<!--      </v-btn>-->
+      <v-btn icon @click="print">
         <v-icon>mdi-application</v-icon>
       </v-btn>
-      <v-btn icon>
-        <v-icon>mdi-minus</v-icon>
-      </v-btn>
-      <v-toolbar-title v-text="title" />
-      <v-spacer />
-      <v-select placeholder="Theme" class="theme-select">
+<!--      <v-btn icon>-->
+<!--        <v-icon>mdi-minus</v-icon>-->
+<!--      </v-btn>-->
+<!--      <v-toolbar-title v-text="title" />-->
 
-      </v-select>
+      <v-img v-show="logo.show" :src="require('../static/banner_logo_1.png')" class="small-logo"></v-img>
+
+      <v-spacer />
+
+<!--      <v-select placeholder="Theme" class="theme-select"></v-select>-->
+
       <v-btn icon>
         <v-icon>mdi-menu</v-icon>
       </v-btn>
+
     </v-app-bar>
+
+
+
+
 
 
       <v-main>
@@ -70,6 +84,7 @@
 
     <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
+      <p>{{ showMiniLogo }}</p>
     </v-footer>
   </v-app>
 </template>
@@ -94,13 +109,45 @@ export default {
       ],
       miniVariant: false,
       right: true,
-      title: 'Landing'
+      title: 'Landing',
+      logo: {
+        show: false
+      }
+
     }
   },
-  methods: {
-    scrollFun() {
-      console.log("scrolling")
+
+  mounted() {
+    this.setScrollListener()
+  },
+
+  computed: {
+
+    showMiniLogo() {
+      return window.scrollY > 250
     }
+
+  },
+  methods: {
+
+    setScrollListener() {
+      window.addEventListener('scroll', this.checkScroll);
+    },
+
+    checkScroll(e) {
+      if (!this.logo.show && window.scrollY > 250) {
+        console.log(true)
+        this.$set(this.logo, "show", true)
+      } else if (this.logo.show && window.scrollY < 250) {
+        console.log(false)
+        this.$set(this.logo, "show", false)
+      }
+    },
+
+    print() {
+      console.log("things")
+    }
+
   }
 }
 </script>
@@ -110,6 +157,10 @@ export default {
   .theme-select {
     max-width: 300px;
     min-width: 100px;
+  }
+
+  .small-logo {
+    max-width: 100px;
   }
 
   #slanted {
