@@ -40,7 +40,7 @@
       :src="require('../static/cafe-banner.jpg')"
       min-height=64
       height="400px"
-      ref="navbar"
+      class="app-bar"
     >
 
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
@@ -56,13 +56,13 @@
 <!--      <v-btn icon>-->
 <!--        <v-icon>mdi-minus</v-icon>-->
 <!--      </v-btn>-->
-<!--      <v-toolbar-title v-text="title" />-->
+      <v-toolbar-title v-show="showMiniLogo" v-text="title" />
 
-      <v-img v-show="logo.show" :src="require('../static/banner_logo_1.png')" class="small-logo"></v-img>
+      <v-img v-show="showMiniLogo" :src="require('../static/logo_transparent.png')" class="small-logo"></v-img>
 
       <v-spacer />
 
-<!--      <v-select placeholder="Theme" class="theme-select"></v-select>-->
+      <v-select placeholder="Theme" class="theme-select"></v-select>
 
       <v-btn icon>
         <v-icon>mdi-menu</v-icon>
@@ -84,7 +84,6 @@
 
     <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
-      <p>{{ showMiniLogo }}</p>
     </v-footer>
   </v-app>
 </template>
@@ -110,8 +109,9 @@ export default {
       miniVariant: false,
       right: true,
       title: 'Landing',
-      logo: {
-        show: false
+
+      view: {
+        scrollY: 0
       }
 
     }
@@ -124,7 +124,7 @@ export default {
   computed: {
 
     showMiniLogo() {
-      return window.scrollY > 250
+      return this.view.scrollY > 250
     }
 
   },
@@ -135,13 +135,7 @@ export default {
     },
 
     checkScroll(e) {
-      if (!this.logo.show && window.scrollY > 250) {
-        console.log(true)
-        this.$set(this.logo, "show", true)
-      } else if (this.logo.show && window.scrollY < 250) {
-        console.log(false)
-        this.$set(this.logo, "show", false)
-      }
+      this.$set(this.view, "scrollY", window.scrollY)
     },
 
     print() {
@@ -161,6 +155,10 @@ export default {
 
   .small-logo {
     max-width: 100px;
+  }
+
+  .app-bar {
+    color: #557581 !important;
   }
 
   #slanted {
