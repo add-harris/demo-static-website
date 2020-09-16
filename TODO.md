@@ -2,7 +2,7 @@
 ## Stuff To Do
 
 - split nav bar stuff to components
-- make small tarns parent logo
+- make small tarns parent logo - x
 - 
 
 - save landing page visited in the store to shrink nav bar to normal

@@ -11,9 +11,6 @@
     <v-app-bar
       app
       color="#F7DDA4"
-      shrink-on-scroll
-      fade-img-on-scroll
-      :src="require('../static/cafe-banner.jpg')"
       min-height=64
       :height=height
       class="app-bar"
@@ -21,9 +18,9 @@
 
       <v-app-bar-nav-icon @click.stop="openDraw = !openDraw" />
 
-      <v-toolbar-title v-show="showMiniLogo" :v-text="title" />
+      <v-toolbar-title :v-text="title" />
 
-      <v-img v-show="showMiniLogo" :src="require('../static/logo_transparent.png')" class="small-logo"></v-img>
+      <v-img :src="require('../static/logo_transparent.png')" class="small-logo"></v-img>
 
       <v-spacer />
 
@@ -61,35 +58,9 @@
 
         openDraw: false,
 
-        view: {
-          scrollY: 0
-        }
-
       }
-    },
-
-    mounted() {
-      this.setScrollListener()
-    },
-
-    computed: {
-
-      showMiniLogo() {
-        return this.view.scrollY > 250
-      }
-
-    },
-    methods: {
-
-      setScrollListener() {
-        window.addEventListener('scroll', this.checkScroll);
-      },
-
-      checkScroll(e) {
-        this.$set(this.view, "scrollY", window.scrollY)
-      }
-
     }
+
   }
 
 </script>

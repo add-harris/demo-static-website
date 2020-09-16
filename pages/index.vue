@@ -2,8 +2,6 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
 
-<!--      <div id="slanted2"></div>-->
-
       <h1 id="top-content">Content1</h1>
       <h1>Content</h1>
       <h1>Content</h1>
@@ -58,13 +56,10 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
 
 export default {
   components: {
-    Logo,
-    VuetifyLogo
+
   },
   layout: 'landing'
 }
