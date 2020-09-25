@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
 
-    <ToolbarsMini title="Cute Cafe" height="64px"></ToolbarsMini>
+    <ToolbarsMini :title="appBarTitle"></ToolbarsMini>
 
       <v-main>
         <v-container>
@@ -19,6 +19,7 @@
 <script>
 
 import ToolbarsMini from "../components/ToolbarsMini"
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
 
@@ -26,6 +27,24 @@ export default {
 
   components: {
     ToolbarsMini
+  },
+
+  data () {
+    return {
+      appBarTitle: "Cute Cafe"
+    }
+  },
+
+  mounted() {
+    this.setLandingVisited(true)
+  },
+
+  methods: {
+
+    ...mapMutations({
+      setLandingVisited: 'properties/setLandingVisited',
+    }),
+
   }
 
 }

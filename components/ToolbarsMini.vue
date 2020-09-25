@@ -46,7 +46,10 @@
 
     props: {
       title: String,
-      height: String
+      height: {
+        type: String,
+        default: "64px"
+      }
     },
 
     components: {

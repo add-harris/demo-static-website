@@ -1,7 +1,9 @@
 <template>
   <v-app dark>
 
-    <Toolbars title="Cute Cafe" height="400px"></Toolbars>
+    <Toolbars v-if="!landingVisited" :title="appBarTitle" height="400px"></Toolbars>
+    <ToolbarsMini v-else :title="appBarTitle"></ToolbarsMini>
+
 
       <v-main>
         <v-container>
@@ -19,27 +21,47 @@
 <script>
 
 import Toolbars from "../components/Toolbars"
+import ToolbarsMini from "../components/ToolbarsMini"
+import { mapGetters, mapMutations, mapState } from 'vuex'
 
 export default {
 
   name: "Landing",
 
   components: {
-    Toolbars
+    Toolbars,
+    ToolbarsMini
   },
 
   data () {
-    return {}
+    return {
+      appBarTitle: "Cute Cafe"
+    }
   },
 
   mounted() {
   },
 
   computed: {
+
+    ...mapState({
+      title: state => state.properties.title,
+      landingVisited: state => state.properties.landingVisited,
+    }),
+
+    // checkVisited() {
+    //   return this.checkLandingVisited()
+    // }
   },
 
   methods: {
+
+    // ...mapGetters({
+    //   checkLandingVisited: 'properties/checkLandingVisited',
+    // }),
+
   }
+
 }
 </script>
 
