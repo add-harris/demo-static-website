@@ -1,9 +1,7 @@
 <template>
   <v-app dark>
 
-    <Toolbars v-if="!landingVisited" :title="appBarTitle" height="400px"></Toolbars>
-    <ToolbarsMini v-else :title="appBarTitle"></ToolbarsMini>
-
+    <Toolbars :landing="!landingVisited" height="400px"></Toolbars>
 
       <v-main>
         <v-container>
@@ -21,7 +19,6 @@
 <script>
 
 import Toolbars from "../components/Toolbars"
-import ToolbarsMini from "../components/ToolbarsMini"
 import { mapGetters, mapMutations, mapState } from 'vuex'
 
 export default {
@@ -29,8 +26,7 @@ export default {
   name: "Landing",
 
   components: {
-    Toolbars,
-    ToolbarsMini
+    Toolbars
   },
 
   data () {

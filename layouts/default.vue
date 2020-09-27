@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
 
-    <ToolbarsMini :title="appBarTitle"></ToolbarsMini>
+    <Toolbars></Toolbars>
 
       <v-main>
         <v-container>
@@ -18,15 +18,15 @@
 
 <script>
 
-import ToolbarsMini from "../components/ToolbarsMini"
-import { mapGetters, mapMutations } from 'vuex'
+import Toolbars from "../components/Toolbars"
+import { mapMutations } from 'vuex'
 
 export default {
 
   name: "Default",
 
   components: {
-    ToolbarsMini
+    Toolbars
   },
 
   data () {

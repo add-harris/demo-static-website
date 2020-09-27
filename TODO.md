@@ -1,12 +1,11 @@
 
 ## Stuff To Do
 
-- split nav bar stuff to components
-- make small tarns parent logo - x
-- 
+- save landing page visited in the store to shrink nav bar to normal - x
+- make small tranparent logo - x
+- nav-bar & nav-draw consoliodated to one component - x
+- setup store - x
 
-- save landing page visited in the store to shrink nav bar to normal
 - contact - find us page
 - gallery with carousel
-- split nav-bar & nav-draw to components
 - add multiple themes

@@ -2,7 +2,7 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
 
-      <h1 id="top-content">Content1</h1>
+      <h1 :class="landingVisited ? 'pt-100' : 'pt-200' ">Content1</h1>
       <h1>Content</h1>
       <h1>Content</h1>
       <h1>Content</h1>
@@ -57,31 +57,34 @@
 
 <script>
 
-export default {
-  components: {
+import { mapState } from 'vuex'
 
-  },
-  layout: 'landing'
+export default {
+
+  name: "Home",
+
+  layout: 'landing',
+
+  computed: {
+
+    ...mapState({
+      landingVisited: state => state.properties.landingVisited,
+    }),
+
+  }
+
+
 }
 </script>
 
 <style>
 
-  #top-content {
-    padding-top: 400px;
+  .pt-200 {
+    padding-top: 200px;
   }
 
-  #slanted2 {
-    width: 0px;
-    height: 0px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    border-top: 50px solid orange;
-    /*border-bottom: 50px solid orange;*/
-    /*border-left: 50px solid orange;*/
-    border-right: 1500px solid transparent;
-    /*background-color: orange;*/
+  .pt-100 {
+    padding-top: 200px;
   }
 
 </style>
