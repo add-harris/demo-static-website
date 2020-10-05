@@ -9,3 +9,7 @@
 - contact - find us page
 - gallery with carousel
 - add multiple themes
+
+- integrate firebase analytics
+- consider making shrink-on-scroll app-bar always work
+- consider full page nav draw

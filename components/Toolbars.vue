@@ -34,26 +34,21 @@
     <v-app-bar
       v-if="landing"
       app
-      color="#F7DDA4"
+      class="app-bar"
       shrink-on-scroll
       fade-img-on-scroll
-      :src="require('../static/cafe-banner.jpg')"
-      min-height=64
+      :src="require('../static/bbq_banner.jpeg')"
+      min-height=85
       :height=height
-      class="app-bar"
     >
 
       <v-app-bar-nav-icon @click.stop="openDraw = !openDraw" />
 
-      <v-img v-show="showMiniLogo" :src="require('../static/logo_transparent.png')" class="small-logo"></v-img>
+      <v-img v-show="showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="small-logo"></v-img>
 
       <v-spacer />
 
       <v-select placeholder="Theme" class="theme-select"></v-select>
-
-      <v-btn icon>
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
 
     </v-app-bar>
 
@@ -73,10 +68,6 @@
       <v-spacer />
 
       <v-select placeholder="Theme" class="theme-select"></v-select>
-
-      <v-btn icon>
-        <v-icon>mdi-menu</v-icon>
-      </v-btn>
 
     </v-app-bar>
 
@@ -172,11 +163,21 @@
   }
 
   .small-logo {
+    padding: 10px;
     max-width: 100px;
   }
 
+  .app-bar-bottom {
+    /*color: #557581 !important;*/
+    border-bottom: 10px whitesmoke solid !important;
+    height: 10px;
+    position: relative;
+    width: 100%;
+  }
+
   .app-bar {
-    color: #557581 !important;
+    border-bottom: 2px whitesmoke solid !important;
+    background-color: black;
   }
 
 </style>
