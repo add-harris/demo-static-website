@@ -37,7 +37,7 @@
       class="app-bar"
       shrink-on-scroll
       fade-img-on-scroll
-      :src="require('../static/bbq_banner.jpeg')"
+      :src="require('../static/bbq_banner_1.jpg')"
       min-height=85
       :height=height
     >
@@ -45,6 +45,7 @@
       <v-app-bar-nav-icon @click.stop="openDraw = !openDraw" />
 
       <v-img v-show="showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="small-logo"></v-img>
+      <v-img v-show="!showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="big-logo"></v-img>
 
       <v-spacer />
 
@@ -135,7 +136,7 @@
     computed: {
 
       showMiniLogo() {
-        return this.view.scrollY > 250
+        return this.view.scrollY > 180
       }
 
     },
@@ -167,12 +168,12 @@
     max-width: 100px;
   }
 
-  .app-bar-bottom {
-    /*color: #557581 !important;*/
-    border-bottom: 10px whitesmoke solid !important;
-    height: 10px;
-    position: relative;
-    width: 100%;
+  .big-logo {
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .app-bar {
