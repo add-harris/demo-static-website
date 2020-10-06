@@ -44,8 +44,9 @@
 
       <v-app-bar-nav-icon @click.stop="openDraw = !openDraw" />
 
-      <v-img v-show="showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="small-logo"></v-img>
-      <v-img v-show="!showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="big-logo"></v-img>
+<!--      <v-img v-show="showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="small-logo"></v-img>-->
+<!--      <v-img v-show="!showMiniLogo" :src="require('../static/bbq_logo_transparent.png')" class="big-logo"></v-img>-->
+      <v-img :src="require('../static/bbq_logo_transparent.png')" :style="bannerLogoCSS"></v-img>
 
       <v-spacer />
 
@@ -137,6 +138,27 @@
 
       showMiniLogo() {
         return this.view.scrollY > 180
+      },
+
+      bannerLogoCSS() {
+
+        const bigLogoStyle = {
+          'max-width': `${ 380 - this.view.scrollY }px`,
+          position: 'absolute',
+          top: '50%',
+          left: '50%',
+          transform: 'translate(-50%, -50%)',
+          transition: 'max-width .5s, top .5s, left .5s'
+        }
+
+        const smallLogoStyle = {
+          'max-width': '110px',
+          'margin-left': '20px',
+          transition: 'max-width .3s, top .3s, left .3s'
+        }
+
+        return this.view.scrollY < 200 ? bigLogoStyle : smallLogoStyle
+
       }
 
     },

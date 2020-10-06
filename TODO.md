@@ -5,11 +5,11 @@
 - make small tranparent logo - x
 - nav-bar & nav-draw consoliodated to one component - x
 - setup store - x
+- do scalable banner logo - x
 
 - contact - find us page
-- gallery with carousel
+- make shrink-on-scroll app-bar always work
+- swap carousel for menu cards
 - add multiple themes
 
 - integrate firebase analytics
-- consider making shrink-on-scroll app-bar always work
-- consider full page nav draw
