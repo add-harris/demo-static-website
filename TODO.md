@@ -6,10 +6,11 @@
 - nav-bar & nav-draw consoliodated to one component - x
 - setup store - x
 - do scalable banner logo - x
+- swap carousel for menu cards - x
 
 - contact - find us page
 - make shrink-on-scroll app-bar always work
-- swap carousel for menu cards
 - add multiple themes
+- perfect mobile styles
 
 - integrate firebase analytics

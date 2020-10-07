@@ -2,10 +2,6 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8 md6>
 
-<!--      <v-row justify="center" align="center" class="nicely-spaced">-->
-<!--        <h1 :class="landingVisited ? 'pt-100' : 'pt-200' " justify-center align-center>Content1</h1>-->
-<!--      </v-row>-->
-
       <v-row justify="center" align="center" class="pt-100">
         <v-icon size="50">mdi-hamburger</v-icon>
       </v-row>
@@ -15,36 +11,13 @@
 
       <v-divider></v-divider>
 
-
-
       <v-row justify="center" align="center" class="p-50">
-        <v-carousel cycle height="400" style="max-width: 500px;">
-          <v-carousel-item
-            eager
-            v-for="(image , i) in images"
-            :key="i"
-            :src="image.src"
-          >
-          </v-carousel-item>
-        </v-carousel>
+
+        <v-col align="center" v-for="card in cards" :key="card.label" lg="3" md="3" sm="6">
+          <Card :cardData="card" ></Card>
+        </v-col>
+
       </v-row>
-
-      <v-divider></v-divider>
-
-      <v-row justify="center" align="center" class="pt-100">
-        <v-btn>Food</v-btn>
-      </v-row>
-
-
-      <v-row justify="center" align="center" class="pt-100">
-        <v-btn>Drinks</v-btn>
-      </v-row>
-
-      <v-row justify="center" align="center" class="pt-100">
-        <v-btn>Drinks</v-btn>
-      </v-row>
-
-
 
     </v-flex>
   </v-layout>
@@ -53,6 +26,7 @@
 <script>
 
 import { mapState } from 'vuex'
+import Card from '../components/Card'
 
 export default {
 
@@ -60,19 +34,32 @@ export default {
 
   layout: 'landing',
 
+  components: {
+    Card
+  },
+
   data() {
     return {
-      images: [
+
+      cards: [
         {
           src: 'https://images.pexels.com/photos/3997609/pexels-photo-3997609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          label: 'Food'
+        },
+        {
+          src: 'https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+          label: 'Drink'
         },
         {
           src: 'https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg?cs=srgb&dl=pexels-pascal-claivaz-410648.jpg&fm=jpg',
+          label: 'Specials'
         },
         {
           src: 'https://images.pexels.com/photos/789327/pexels-photo-789327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-        }
+          label: 'Deserts'
+        },
       ],
+
     }
   },
 
@@ -111,6 +98,8 @@ export default {
     font-family: 'Courier Prime', monospace;
     width: 400px;
     font-size: 1.4em;
+    text-align: justify;
+    text-justify: inter-word;
   }
 
   .nicely-spaced {
