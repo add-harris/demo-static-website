@@ -32,7 +32,6 @@
     <!-- APP BAR -->
 
     <v-app-bar
-      v-if="landing"
       app
       class="app-bar"
       shrink-on-scroll
@@ -45,25 +44,6 @@
       <v-app-bar-nav-icon @click.stop="openDraw = !openDraw" />
 
       <v-img :src="require('../static/bbq_logo_transparent.png')" :style="bannerLogoCSS"></v-img>
-
-      <v-spacer />
-
-      <v-select placeholder="Theme" class="theme-select"></v-select>
-
-    </v-app-bar>
-
-    <v-app-bar
-      v-else
-      app
-      color="#F7DDA4"
-      min-height=64
-      height=64
-      class="app-bar"
-    >
-
-      <v-app-bar-nav-icon @click.stop="openDraw = !openDraw" />
-
-      <v-img :src="require('../static/logo_transparent.png')" class="small-logo"></v-img>
 
       <v-spacer />
 
@@ -123,9 +103,7 @@
     },
 
     mounted() {
-      if (this.landing) {
-        this.setScrollListener()
-      }
+      this.setScrollListener()
     },
 
     beforeDestroy() {

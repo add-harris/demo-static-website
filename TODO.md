@@ -9,6 +9,7 @@
 - swap carousel for menu cards - x
 
 - contact - find us page
+- remove landing layout completely
 - make shrink-on-scroll app-bar always work
 - add multiple themes
 - perfect mobile styles

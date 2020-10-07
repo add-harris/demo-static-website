@@ -1,7 +1,7 @@
 <template>
   <v-app dark>
 
-    <Toolbars></Toolbars>
+    <Toolbars height="400px"></Toolbars>
 
       <v-main>
         <v-container>

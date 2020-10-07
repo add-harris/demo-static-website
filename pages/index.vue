@@ -30,9 +30,9 @@ import Card from '../components/Card'
 
 export default {
 
-  name: "Home",
+  name: 'Home',
 
-  layout: 'landing',
+  layout: 'default',
 
   components: {
     Card
