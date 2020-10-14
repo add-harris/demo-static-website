@@ -50,8 +50,10 @@
 <style>
 
   #map {
-    height: 400px;
-    width: 400px;
+    height: 350px;
+    width: 350px;
+    margin: 40px;
+    padding: 20px;
   }
 
 

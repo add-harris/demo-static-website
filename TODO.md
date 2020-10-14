@@ -7,11 +7,15 @@
 - setup store - x
 - do scalable banner logo - x
 - swap carousel for menu cards - x
+- contact - find us page - x
+- map - x
+- remove landing layout completely - x
+- make shrink-on-scroll app-bar always work - x
+- work on mobile styles - x
 
-- contact - find us page
-- remove landing layout completely
-- make shrink-on-scroll app-bar always work
+- make card links work
+- add social media links
+- clear out unused images
 - add multiple themes
-- perfect mobile styles
 
 - integrate firebase analytics

@@ -4,21 +4,30 @@
 
     <v-row>
 
-      <v-col xs="12" sm="12" md="6">
+      <v-col xs="12" sm="8" offset-sm="2" md="6" offset-md="0" align="center">
 
         <Address :addressDetails="addressDetails"></Address>
 
       </v-col>
 
-      <v-col xs="12" sm="12" md="6">
+      <v-col xs="12" sm="12" md="6" align="center">
+
         <Map></Map>
+
       </v-col>
 
     </v-row>
 
-    <v-row>
+    <v-divider></v-divider>
 
-      <OpeningTimes :openingTimes="openingTimes"></OpeningTimes>
+    <v-row align="center">
+
+      <v-col xs="12" sm="12" md="12" offset-md="0">
+
+        <OpeningTimes :openingTimes="openingTimes"></OpeningTimes>
+
+      </v-col>
+
 
     </v-row>
 
@@ -90,12 +99,12 @@
 <style>
 
   .map-card {
-    height: 600px;
+    height: 850px;
   }
 
   @media only screen and (max-width: 960px) {
     .map-card {
-      height: 1000px;
+      height: 1300px;
     }
   }
 

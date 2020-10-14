@@ -5,15 +5,20 @@
       <v-row justify="center" align="center" class="pt-100">
         <v-icon size="50">mdi-hamburger</v-icon>
       </v-row>
+
       <v-row justify="center" align="center" class="p-50">
-        <p class="para-text">Lots of nice text about our restaurant. We make the best food, it is truley delicious. Served with a range of chilled drinks, ect ect ect ...</p>
+        <p class="para-text">
+          Lots of nice text about our restaurant.
+          We make the best food, it is truley delicious.
+          Served with a range of chilled drinks, ect ect ect ...
+        </p>
       </v-row>
 
       <v-divider></v-divider>
 
       <v-row justify="center" align="center" class="p-50">
 
-        <v-col align="center" v-for="card in cards" :key="card.label" lg="3" md="3" sm="6">
+        <v-col align="center" v-for="card in cards" :key="card.label" lg="3" md="3" sm="12">
           <Card :cardData="card" ></Card>
         </v-col>
 
@@ -77,14 +82,6 @@ export default {
 
 <style>
 
-  .pt-200 {
-    padding-top: 200px;
-  }
-
-  .pt-150 {
-    padding-top: 150px;
-  }
-
   .pt-100 {
     padding-top: 100px;
   }
@@ -97,18 +94,23 @@ export default {
   .para-text {
     font-family: 'Courier Prime', monospace;
     width: 400px;
-    font-size: 1.4em;
+    font-size: 1.3em;
     text-align: justify;
     text-justify: inter-word;
   }
 
-  .nicely-spaced {
-    padding: 100px;
+  @media only screen and (max-width: 500px) {
+    .para-text {
+      width: 300px;
+      font-size: 1.1em;
+    }
   }
 
-  .floating-icon {
-    font-size: 50px !important;
-
+  @media only screen and (max-width: 350px) {
+    .para-text {
+      width: 200px;
+      font-size: 1.1em;
+    }
   }
 
 

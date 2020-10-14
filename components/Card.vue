@@ -3,9 +3,9 @@
   <v-hover>
     <template v-slot:default="{ hover }">
 
-      <v-card width="200px" height="300px" class="ma-6" nuxt to="/">
+      <v-card class="card-link ma-6" nuxt to="/">
 
-        <v-img :src="cardData.src" height="300px">
+        <v-img :src="cardData.src" class="card-link">
           <v-btn class="center-btn grey-gradient" outlined >{{cardData.label}}</v-btn>
         </v-img>
 
@@ -53,6 +53,25 @@
 </script>
 
 <style>
+
+  .card-link {
+    height: 300px;
+    width: 200px;
+  }
+
+  @media only screen and (max-width: 960px) {
+    .card-link {
+      height: 150px;
+      width: 500px;
+    }
+  }
+
+  @media only screen and (max-width: 550px) {
+    .card-link {
+      height: 150px;
+      width: 300px;
+    }
+  }
 
   .center-btn {
     position: absolute;
