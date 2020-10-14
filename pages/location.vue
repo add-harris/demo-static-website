@@ -6,29 +6,19 @@
 
       <v-col xs="12" sm="12" md="6">
 
-        <div class="address-text">
-          <label>Address:</label>
-          <p>Luca's BBQ Restaurant</p>
-          <p>101 Grey Street</p>
-          <p>Newcastle Upon Tyne</p>
-          <p>NE1 6BR</p>
-          <p><label>tel:</label> 0191 654321</p>
-          <p><label>email:</label> lucasbbq@gmail.com</p>
-        </div>
+        <Address :addressDetails="addressDetails"></Address>
 
       </v-col>
 
       <v-col xs="12" sm="12" md="6">
-        <div id="map"></div>
+        <Map></Map>
       </v-col>
 
     </v-row>
 
-    <v-divider></v-divider>
-
     <v-row>
 
-
+      <OpeningTimes :openingTimes="openingTimes"></OpeningTimes>
 
     </v-row>
 
@@ -39,6 +29,9 @@
 <script>
 
   import mapboxgl from 'mapbox-gl'
+  import OpeningTimes from '../components/OpeningTimes'
+  import Address from '../components/Address'
+  import Map from '../components/Map'
 
   export default {
 
@@ -46,30 +39,48 @@
 
     layout: 'default',
 
-    data() {
-      return {}
+    components: {
+      OpeningTimes,
+      Address,
+      Map
     },
 
-    mounted() {
+    data() {
+      return {
+        openingTimes: [
+          {
+            day: "mon",
+            time: "10:00 - 22:00"
+          },
+          {
+            day: "tue",
+            time: "10:00 - 22:00"
+          },
+          {
+            day: "wed",
+            time: "10:00 - 22:00"
+          },
+          {
+            day: "thurs",
+            time: "10:00 - 22:00"
+          },
+          {
+            day: "fri",
+            time: "10:00 - 22:00"
+          }
+        ],
 
-      // mapbox docs: https://docs.mapbox.com/
-      // accessToken should be replaced with customer accessToken
+        addressDetails: {
+          line1: "Luca's BBQ Restaurant",
+          line2: "101 Grey Street",
+          line3: "Newcastle Upon Tyne",
+          postcode: "NE1 6BR",
+          tel: "0191 654321",
+          email: "lucasbbq@gmail.com"
+        }
 
-      mapboxgl.accessToken = 'pk.eyJ1IjoiYWRkLWhhcnJpcyIsImEiOiJja2Z6eG01MGYwMjFwMnFxdzdxcmk0aTg5In0.8x5PhfXW5RzLfLC65HqtGQ'
-      var map = new mapboxgl.Map({
-        container: 'map', // container id
-        style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [-1.612, 54.973], // starting position [lng, lat]
-        zoom: 12 // starting zoom
-      });
-
-      map.addControl(new mapboxgl.NavigationControl());
-
-      var marker = new mapboxgl.Marker()
-        .setLngLat([-1.6125, 54.9729])
-        .addTo(map);
-
-    }
+      }
+    },
 
   }
 
@@ -78,15 +89,7 @@
 
 <style>
 
-  #map {
-    height: 400px;
-    width: 400px;
-    /*margin-right: 20px;*/
-  }
-
   .map-card {
-    /*padding: 50px;*/
-    margin-top: 100px;
     height: 600px;
   }
 
@@ -94,21 +97,6 @@
     .map-card {
       height: 1000px;
     }
-  }
-
-  .address-text {
-    padding: 20px;
-  }
-
-  .address-text > p, .address-text > label {
-    font-family: 'Courier Prime', monospace;
-    text-align: left;
-    font-size: 1.1em;
-    margin-bottom: 5px;
-  }
-
-  .address-text label {
-    text-decoration: underline;
   }
 
 

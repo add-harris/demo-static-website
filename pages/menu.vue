@@ -11,7 +11,7 @@
           </v-btn>
         </template>
         <v-card>
-          <v-toolbar dark color="orange">
+          <v-toolbar dark color="grey">
             <v-btn icon dark @click="dialogOne = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>
@@ -33,7 +33,7 @@
           </v-btn>
         </template>
         <v-card>
-          <v-toolbar dark color="orange">
+          <v-toolbar dark color="grey">
             <v-btn icon dark @click="dialogTwo = false">
               <v-icon>mdi-close</v-icon>
             </v-btn>

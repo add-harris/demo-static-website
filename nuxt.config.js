@@ -25,7 +25,10 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Courier+Prime:wght@700&display=swap'},
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?' +
+          'family=Courier+Prime:wght@700&' +
+          'family=Lobster&' +
+          'display=swap'},
       { rel: 'stylesheet', href: 'https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css'},
     ]
   },
