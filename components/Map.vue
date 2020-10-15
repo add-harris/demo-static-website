@@ -53,7 +53,13 @@
     height: 350px;
     width: 350px;
     margin: 40px;
-    padding: 20px;
+  }
+
+  @media only screen and (min-width: 1264px) {
+    #map {
+      height: 450px;
+      width: 450px;
+    }
   }
 
 

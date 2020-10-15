@@ -48,7 +48,6 @@
 
     data () {
       return {
-        // emoji: 'U+1F436'
         emojis: {
           one: '\u{1F32E}',
           two: '\u{1F379}',
@@ -70,7 +69,7 @@
 <style>
 
   .address-box {
-    padding: 20px;
+    /*padding: 20px;*/
     margin: 20px;
   }
 

@@ -4,7 +4,7 @@
 
     <v-row>
 
-      <v-col xs="12" sm="8" offset-sm="2" md="6" offset-md="0" align="center">
+      <v-col xs="12" sm="8" offset-sm="2" md="5" offset-md="1" align="center">
 
         <Address :addressDetails="addressDetails"></Address>
 
@@ -102,6 +102,7 @@
     height: 850px;
   }
 
+  /* extend card height to fit in shuffled up content on screen break */
   @media only screen and (max-width: 960px) {
     .map-card {
       height: 1300px;
