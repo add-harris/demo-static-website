@@ -12,8 +12,9 @@
 - remove landing layout completely - x
 - make shrink-on-scroll app-bar always work - x
 - work on mobile styles - x
+- make card links work - x
 
-- make card links work
+- move opening times and card data to store
 - add social media links
 - clear out unused images
 - add multiple themes

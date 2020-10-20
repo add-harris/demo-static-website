@@ -1,68 +1,54 @@
 <template>
 
-  <v-container>
+  <v-row justify="center" align="center">
 
-    <v-row justify="center">
+    <v-col align="center" v-for="card in cards" :key="card.label" lg="3" md="3" sm="12">
+      <CardButton :cardData="card" ></CardButton>
+    </v-col>
 
-      <v-dialog v-model="dialogOne" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark outlined v-bind="attrs" v-on="on" class="mt-7">
-            Eat This
-          </v-btn>
-        </template>
-        <v-card>
-          <v-toolbar dark color="grey">
-            <v-btn icon dark @click="dialogOne = false">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-container style="height: 1000px">
-            <embed src="/menu.pdf" type="application/pdf" width="100%" height="100%">
-          </v-container>
-        </v-card>
-      </v-dialog>
-
-    </v-row>
-
-    <v-row justify="center">
-
-      <v-dialog v-model="dialogTwo" fullscreen hide-overlay transition="dialog-bottom-transition">
-        <template v-slot:activator="{ on, attrs }">
-          <v-btn color="primary" dark outlined v-bind="attrs" v-on="on" class="mt-7">
-            Drink This
-          </v-btn>
-        </template>
-        <v-card>
-          <v-toolbar dark color="grey">
-            <v-btn icon dark @click="dialogTwo = false">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
-          </v-toolbar>
-          <v-container style="height: 1000px">
-            <embed src="/menu.pdf" type="application/pdf" width="100%" height="100%">
-          </v-container>
-        </v-card>
-      </v-dialog>
-
-    </v-row>
-
-  </v-container>
+  </v-row>
 
 </template>
 
 <script>
+
+  import CardButton from '../components/CardButton'
+
   export default {
+
+    name: 'Menu',
+
+    layout: 'default',
+
+    components: {
+      CardButton
+    },
+
     data () {
       return {
-        dialogOne: false,
-        dialogTwo: false,
+
+        cards: [
+          {
+            src: 'https://images.pexels.com/photos/3997609/pexels-photo-3997609.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            label: 'Food'
+          },
+          {
+            src: 'https://images.pexels.com/photos/109275/pexels-photo-109275.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            label: 'Drink'
+          },
+          {
+            src: 'https://images.pexels.com/photos/410648/pexels-photo-410648.jpeg?cs=srgb&dl=pexels-pascal-claivaz-410648.jpg&fm=jpg',
+            label: 'Specials'
+          },
+          {
+            src: 'https://images.pexels.com/photos/789327/pexels-photo-789327.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+            label: 'Deserts'
+          },
+        ],
+
       }
     },
-    computed: {
-      calculateHeight() {
 
-      }
-
-    }
   }
+
 </script>

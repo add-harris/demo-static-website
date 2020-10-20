@@ -1,6 +1,8 @@
 <template>
-  <v-layout column justify-center align-center>
-    <v-flex xs12 sm8 md6>
+<!--  <v-layout column justify-center align-center>-->
+<!--    <v-flex xs12 sm8 md6>-->
+
+    <div>
 
       <v-row justify="center" align="center" class="pt-100">
         <v-icon size="50">mdi-hamburger</v-icon>
@@ -19,19 +21,21 @@
       <v-row justify="center" align="center" class="p-50">
 
         <v-col align="center" v-for="card in cards" :key="card.label" lg="3" md="3" sm="12">
-          <Card :cardData="card" ></Card>
+          <CardButton :cardData="card" ></CardButton>
         </v-col>
 
       </v-row>
 
-    </v-flex>
-  </v-layout>
+    </div>
+
+<!--    </v-flex>-->
+<!--  </v-layout>-->
 </template>
 
 <script>
 
 import { mapState } from 'vuex'
-import Card from '../components/Card'
+import CardButton from '../components/CardButton'
 
 export default {
 
@@ -40,7 +44,7 @@ export default {
   layout: 'default',
 
   components: {
-    Card
+    CardButton
   },
 
   data() {

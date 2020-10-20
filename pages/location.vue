@@ -28,7 +28,6 @@
 
       </v-col>
 
-
     </v-row>
 
   </v-card>
@@ -37,7 +36,6 @@
 
 <script>
 
-  import mapboxgl from 'mapbox-gl'
   import OpeningTimes from '../components/OpeningTimes'
   import Address from '../components/Address'
   import Map from '../components/Map'
