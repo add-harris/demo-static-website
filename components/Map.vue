@@ -50,15 +50,31 @@
 <style>
 
   #map {
-    height: 350px;
-    width: 350px;
+    height: 450px;
+    width: 450px;
     margin: 40px;
   }
 
-  @media only screen and (min-width: 1264px) {
+  @media only screen and (max-width: 1263px) {
     #map {
-      height: 450px;
-      width: 450px;
+      height: 350px;
+      width: 350px;
+    }
+  }
+
+  @media only screen and (max-width: 450px) {
+    #map {
+      height: 300px;
+      width: 300px;
+      margin: 20px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    #map {
+      height: 250px;
+      width: 250px;
+      margin: 10px;
     }
   }
 

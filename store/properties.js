@@ -11,10 +11,6 @@ export const getters = {
   // getTitle (state) {
   //   return state.title
   // },
-  //
-  // checkLandingVisited (state) {
-  //   return state.landingVisited
-  // },
 
 }
 
