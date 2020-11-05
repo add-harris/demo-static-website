@@ -4,6 +4,8 @@
 
     <div>
 
+      <h2>Deployed by Cloud Build!!</h2>
+
       <v-row justify="center" align="center" class="pt-100">
         <v-icon size="50">mdi-hamburger</v-icon>
       </v-row>
