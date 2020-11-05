@@ -6,4 +6,4 @@ steps:
     entrypoint: npm
     args: ['run', 'generate']
   - name: adamharrison/firebase-cli
-    args: ['deploy']
+    args: ['deploy', '--project=lithe-transport-294511', '--only=hosting']
