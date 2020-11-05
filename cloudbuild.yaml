@@ -6,6 +6,8 @@ steps:
     entrypoint: npm
     args: ['run', 'generate']
   - name: adamharrison/firebase-cli
-    args: ['projects:create']
+    args: ['projects:create', '$PROJECT_ID']
+  - name: adamharrison/firebase-cli
+    args: ['apps:create', 'WEB', '$BUILD_ID']
   - name: adamharrison/firebase-cli
     args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
