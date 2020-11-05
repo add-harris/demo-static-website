@@ -5,3 +5,5 @@ steps:
   - name: node
     entrypoint: npm
     args: ['run', 'generate']
+  - name: adamharrison/firebase-cli
+    args: ['deploy']
