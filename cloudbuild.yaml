@@ -1,13 +1,17 @@
 steps:
-  - name: node
-    entrypoint: npm
-    args: ['install']
-  - name: node
-    entrypoint: npm
-    args: ['run', 'generate']
   - name: adamharrison/firebase-cli
-    args: ['projects:create', '$PROJECT_ID']
-  - name: adamharrison/firebase-cli
-    args: ['apps:create', 'WEB', '$BUILD_ID']
-  - name: adamharrison/firebase-cli
-    args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
+    entrypoint: create-app.sh
+#  - name: node
+#    entrypoint: npm
+#    args: ['install']
+#  - name: node
+#    entrypoint: npm
+#    args: ['run', 'generate']
+#  - name: adamharrison/firebase-cli
+#    args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
+
+
+## after app:create need to catch APP-ID
+## then firebase apps:sdkconfig -o appconfig WEB APP-ID
+## writes config appconfig file
+## need to feed into nuxt.config.js
