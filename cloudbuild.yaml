@@ -1,6 +1,6 @@
 steps:
   - name: adamharrison/firebase-cli
-    entrypoint: create-app.sh
+    entrypoint: ./create-app.sh
 #  - name: node
 #    entrypoint: npm
 #    args: ['install']
