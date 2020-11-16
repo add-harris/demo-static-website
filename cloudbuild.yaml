@@ -7,10 +7,15 @@ steps:
     args: ['run', 'generate']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
-    args: ['mb', '-l', 'europe-west2', 'gs://www.test-build-$BUILD_ID.binxly.net']
+    args: ['mb', '-l', 'europe-west2', 'gs://www.build-$BUILD_ID.binxly.net']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
-    args: ['rsync', '-R', 'dist', 'gs://www.test-build-$BUILD_ID.binxly.net']
+    args: ['rsync', '-R', 'dist', 'gs://www.build-$BUILD_ID.binxly.net']
+  - name: 'adamharrison/binxly-utils'
+    entrypoint: 'gsutil'
+    args: ['acl', 'acl', '-r', '-u', 'AllUsers:R', 'gs://www.build-$BUILD_ID.binxly.net']
+
+#  gsutil acl ch -u AllUsers:R gs://example-bucket/example-object
 
 #  - name: node
 #    entrypoint: npm
