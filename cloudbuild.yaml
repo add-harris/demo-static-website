@@ -13,9 +13,15 @@ steps:
     args: ['rsync', '-R', 'dist', 'gs://test.binxly.net']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
-    args: ['acl', 'ch', '-r', '-u', 'AllUsers:R', 'gs://test.binxly.net']
+    args: ['iam', 'ch', 'allUsers:objectViewer', 'gs://test.binxly.net']
+  - name: 'adamharrison/binxly-utils'
+    entrypoint: 'gsutil'
+    args: ['web', 'set', '-m', 'index.html', '-e', '404.html', 'allUsers:objectViewer', 'gs://test.binxly.net']
 
 #  gsutil acl ch -u AllUsers:R gs://example-bucket/example-object
+#  gsutil web set -m index.html -e 404.html gs://www.example.com
+
+# config for build and deploy to firebase
 
 #  - name: node
 #    entrypoint: npm
