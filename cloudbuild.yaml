@@ -1,7 +1,8 @@
 steps:
-  - name: adamharrison/firebase-cli
-    entrypoint: 'bash'
-    args: ['/create-app.sh', '$BUILD_ID']
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gsutil'
+    args: ['mb', 'gs://www.test.binxly.net']
+
 #  - name: node
 #    entrypoint: npm
 #    args: ['install']
@@ -11,6 +12,12 @@ steps:
 #  - name: adamharrison/firebase-cli
 #    args: ['deploy', '--project=$PROJECT_ID', '--only=hosting']
 
+
+# trial config for dynamic firebase deploy
+
+#  - name: adamharrison/firebase-cli
+#    entrypoint: 'bash'
+#    args: ['/create-app.sh', '$BUILD_ID']
 
 ## after app:create need to catch APP-ID
 ## then firebase apps:sdkconfig -o appconfig WEB APP-ID
