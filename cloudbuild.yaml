@@ -1,5 +1,11 @@
 steps:
-  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  - name: 'adamharrison/binxly-utils'
+    entrypoint: npm
+    args: ['install']
+  - name: 'adamharrison/binxly-utils'
+    entrypoint: npm
+    args: ['run', 'generate']
+  - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
     args: ['mb', '-l', 'europe-west2', 'gs://www.test.binxly.net']
 
