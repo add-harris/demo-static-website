@@ -19,7 +19,17 @@ steps:
     args: ['web', 'set', '-m', 'index.html', '-e', '404.html', 'gs://www.binxly.net']
 
 #  gsutil acl ch -u AllUsers:R gs://example-bucket/example-object
-#  gsutil web set -m index.html -e 404.html gs://www.example.com
+## Setup new CNAME with command line (?)
+#  gcloud beta dns --project=$PROJECT_ID record-sets transaction add c.storage.googleapis.com. --name=test.binxly.net. --ttl=300 --type=CNAME --zone=binxly-public-zone-main
+
+
+## Check DNS commands
+#  dig +trace binxly.net
+#  dig -t ns binxly.net +short
+#  curl -vvv http://test.binxly.net
+#  nslookup binxly.net
+#  whois binxly.net
+
 
 # config for build and deploy to firebase
 
