@@ -5,9 +5,9 @@ steps:
   - name: 'adamharrison/binxly-utils'
     entrypoint: npm
     args: ['run', 'generate']
-  - name: 'adamharrison/binxly-utils'
-    entrypoint: 'gsutil'
-    args: ['mb', '-l', 'europe-west2', 'gs://www.binxly.net']
+#  - name: 'adamharrison/binxly-utils'
+#    entrypoint: 'gsutil'
+#    args: ['mb', '-l', 'europe-west2', 'gs://www.binxly.net']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
     args: ['rsync', '-R', 'dist', 'gs://www.binxly.net']

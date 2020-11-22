@@ -86,12 +86,12 @@
           {
             icon: 'mdi-food-fork-drink',
             title: 'Menu',
-            to: '/menu'
+            to: '/menu/'
           },
           {
             icon: 'mdi-map-marker-radius',
             title: 'Location',
-            to: '/location'
+            to: '/location/'
           }
         ],
 
