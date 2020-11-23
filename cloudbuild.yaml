@@ -10,13 +10,13 @@ steps:
 #    args: ['mb', '-l', 'europe-west2', 'gs://www.binxly.net']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
-    args: ['rsync', '-R', 'dist', 'gs://www.binxly.net']
+    args: ['rsync', '-R', 'dist', 'gs://test.binxly.net']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
-    args: ['iam', 'ch', 'allUsers:objectViewer', 'gs://www.binxly.net']
+    args: ['iam', 'ch', 'allUsers:objectViewer', 'gs://test.binxly.net']
   - name: 'adamharrison/binxly-utils'
     entrypoint: 'gsutil'
-    args: ['web', 'set', '-m', 'index.html', '-e', '404.html', 'gs://www.binxly.net']
+    args: ['web', 'set', '-m', 'index.html', '-e', '404.html', 'gs://test.binxly.net']
 
 #  gsutil acl ch -u AllUsers:R gs://example-bucket/example-object
 ## Setup new CNAME with command line (?)
